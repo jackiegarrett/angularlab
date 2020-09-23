@@ -1,0 +1,36 @@
+<div id="mainContainer">
+    <!-- Make this dynamic by using {{ }}-->
+    <h1>TODO List</h1>
+    <h2>A place to store your todos</h2>
+    <input
+    type="text"
+    [(ngModel)] = "searchText"
+    placeholder="Filter your to-dos">
+    <div id="toDoList">
+        <ol>
+
+            <li
+            *ngFor="let todo of todos; index as i"
+            [ngClass]="{completed: todo.completed}">
+                
+            <button
+                (click)="clickComplete(i)"
+                *ngIf="!todo.completed"
+                id="completedBtn">completed
+            </button>
+
+            {{todo.task}}
+            <button
+            (click)="deleteClick(i)"
+            id="right">X</button>
+            </li>
+        </ol>
+    </div>
+    <div class="addForm">
+        <input
+        type="text"
+        placeholder="Add your to-do"
+        [(ngModel)]="newItem">
+        <button id="add" (click)="handleClick()">Add</button>
+    </div>
+  </div>

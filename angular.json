@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "practiceNG"
+    }
+  },
+  "defaultProject": "practiceNG",
+  "cli": {
+    "analytics": false
+  }
 }
