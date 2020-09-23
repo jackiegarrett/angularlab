@@ -26,11 +26,13 @@ export class TodoComponent implements OnInit {
   }
 
   handleClick = ():void => {
-    this.todos.push({
-      task: this.newItem,
-      completed: false
-    })
-    this.newItem = "";
+    if (this.newItem !== "") {
+      this.todos.push({
+        task: this.newItem,
+        completed: false
+      })
+      this.newItem = "";
+    }
   }
 
   deleteClick = (i: number):void => {
