@@ -4,11 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { TodoComponent } from './todo/todo.component';
+import { CustomPipe } from './Pipe/custom.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent
+    TodoComponent,
+    CustomPipe,
   ],
   imports: [
     BrowserModule,
