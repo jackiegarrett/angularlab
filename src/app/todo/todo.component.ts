@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './../interface/todo';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
@@ -20,6 +21,20 @@ export class TodoComponent implements OnInit {
 
   searchText:string ="";
   newItem: string = "";
+  search : string;
+  originalTodos:Todo[] = this.todos;
+
+  Search = ():void => {
+    if (this.search.trim() !== "") {
+      this.todos = this.todos.filter(res=>{
+        return res.task.toLocaleLowerCase().match(this.search.toLocaleLowerCase());
+      })
+    } else if (this.search.trim() === "") {
+      this.ngOnInit();
+      this.todos = this.originalTodos;
+    }
+    
+  }
 
   clickComplete = (i: number): void => {
     this.todos[i].completed = true;

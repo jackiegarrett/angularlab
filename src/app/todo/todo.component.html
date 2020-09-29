@@ -1,8 +1,10 @@
-<div id="mainContainer">
+<div id="mainContainer" ngClick="search = undefined">
     <!-- Make this dynamic by using {{ }}-->
     <h1>TODO List</h1>
     <h2>A place to store your todos</h2>
     <input
+    [(ngModel)]="search"
+    (input) = "Search()"
     type="text"
     placeholder="Filter your to-dos">
     <div id="toDoList">
@@ -28,6 +30,9 @@
         type="text"
         placeholder="Add your to-do"
         [(ngModel)]="newItem">
-        <button id="add" (click)="handleClick()">Add</button>
+        <button id="add"
+        (click)="handleClick()">
+        Add
+        </button>
     </div>
   </div>
